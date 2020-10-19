@@ -13,6 +13,17 @@ body {
   margin: 0 auto;
   background-color: #efefef;
   padding: 4%;
+  position: relative;
+}
+
+nav {
+  background-color: #dddddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 8%;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .align-center {
@@ -27,7 +38,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   row-gap: 25px;
   column-gap: 25px;
 }
@@ -35,7 +46,7 @@ body {
 .card {
   width: 100%;
   min-width: 200px;
-  height: 200px;
+  height: 300px;
   background-color: grey;
   position: relative;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);

@@ -1,13 +1,16 @@
 import React from 'react'
 
 import ItemCards from '../components/ItemCards'
+import recipes from '../recipes'
 
 export default function FrontPage() {
   return (
     <div>
-      <h1>Hello from frontpage</h1>
+      <h1>Reseptit</h1>
         <div className="item-pool grid">
-          <ItemCards dishname={'Nuudeli'} time={'10'} />
+          {recipes.map( item => {
+            return <ItemCards recipe={item} key={item.id}/>
+          })}
         </div>
     </div>
   )
