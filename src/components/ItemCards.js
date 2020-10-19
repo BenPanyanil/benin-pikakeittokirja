@@ -1,9 +1,13 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
+
 
 export default function ItemCards({recipe}) {
+    let history = useHistory()
 
     const handleItem = () => {
-        alert('kakka')
+        history.push("/detail")
+        //Näytä oikea resepti
     }
 
     return (
