@@ -6,13 +6,8 @@ export default function FrontPage() {
   return (
     <div>
       <h1>Hello from frontpage</h1>
-        <div className="item-pool pool space-between">
-          <ItemCards />
-          <ItemCards />
-          <ItemCards />
-          <ItemCards />
-          <ItemCards />
-          <ItemCards />
+        <div className="item-pool grid">
+          <ItemCards dishname={'Nuudeli'} time={'10'} />
         </div>
     </div>
   )

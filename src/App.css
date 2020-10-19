@@ -1,5 +1,4 @@
 body {
-  background-color: plum;
   margin: 0;
 }
 
@@ -9,11 +8,11 @@ body {
 
 .App {
   font-family: "Poppins", sans-serif;
-  max-width: 900px;
+  max-width: 1000px;
+  height: 100vh;
   margin: 0 auto;
-  background-color: #eeeeee;
+  background-color: #efefef;
   padding: 4%;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .align-center {
@@ -26,18 +25,26 @@ body {
   justify-content: space-between;
 }
 
-.pool {
-  flex-wrap: wrap;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 25px;
+  column-gap: 25px;
 }
 
 .card {
-  width: 32%;
+  width: 100%;
   min-width: 200px;
   height: 200px;
-  margin: 10px 0;
   background-color: grey;
   position: relative;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition-duration: 250ms;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .info-blob {
