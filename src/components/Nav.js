@@ -15,7 +15,7 @@ export default function Nav() {
     }
 
     return (
-        <nav className="space-between"> 
+        <nav className="flex space-between"> 
             <div>{showBackButton()}</div>
             <div>menu</div>
         </nav>

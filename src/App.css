@@ -9,10 +9,10 @@ body {
 .App {
   font-family: "Poppins", sans-serif;
   max-width: 1000px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   background-color: #efefef;
-  padding: 100px 4%;
+  padding: 100px 0;
   position: relative;
 }
 
@@ -21,18 +21,51 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 20px 8%;
+  padding: 20px 6%;
   width: 100%;
   max-width: 1000px;
 }
 
-.align-center {
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  background-color: #dddddd;
+  color: #666666;
+}
+
+.p-side-6 {
+  padding: 0 6%;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.flex {
   display: flex;
+}
+
+.align-center {
   align-items: center;
 }
 
+.justify-center {
+  justify-items: center;
+}
+
 .space-between {
-  display: flex;
   justify-content: space-between;
 }
 
@@ -41,6 +74,10 @@ nav {
   grid-template-columns: 1fr 1fr;
   row-gap: 25px;
   column-gap: 25px;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 .recipe.grid {
@@ -89,4 +126,35 @@ table {
 td {
   border: 1px solid black;
   padding: 15px;
+}
+
+.servingSize-calculator {
+  justify-self: end;
+  padding: 30px 25px;
+  border: 1px solid #999999;
+  border-radius: 8px;
+  width: 280px;
+}
+
+.servingSize-btn {
+  background-color: #111111;
+  color: #fff;
+  width: 85px;
+  height: 85px;
+  border-radius: 100px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition-duration: 250ms;
+  outline: none;
+}
+
+.servingSize-btn:hover {
+  transform: scale(1.08);
+}
+
+.img-slider {
+  width: 100%;
+  height: 500px;
+  background-color: #dddddd;
 }
