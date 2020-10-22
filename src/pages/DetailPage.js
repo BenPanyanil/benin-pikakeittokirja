@@ -1,12 +1,39 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 export default function DetailPage() {
 let history = useHistory()
+let [ customSize, setCustomSize ] = useState(false)
+let [ customValue, setCustomValue] = useState(5)
+
+const refSlideIn = useRef()
+const refSlideOut = useRef()
 	
 const handleButton = () => {
 	history.push("/recipe")
 }
+
+const minus = () => {
+	if (customValue > 1) {
+		setCustomValue(customValue - 1)
+	}
+}
+
+const plus = () => {
+	if (customValue < 10) {
+		setCustomValue(customValue + 1)
+	}
+}
+
+useEffect(() => {
+	if (customSize === true) {
+		refSlideIn.current.style.left = '0px'
+		refSlideIn.current.style.opacity = '1'
+		refSlideOut.current.style.opacity = '0'
+		refSlideOut.current.style.left = '-25%'
+	}	
+}, [customSize])
+
 
 	return (
 		<>
@@ -22,12 +49,24 @@ const handleButton = () => {
 								<li>Vesi</li>
 							</ul>
 						</div>
-						<div className="servingSize-calculator grid justify-center">
-							<button onClick={() => handleButton()} className="servingSize-btn">1</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">2</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">3</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">4</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">5</button>
+						<div className="servingSize-calculator">
+							<div className="grid justify-center">
+								<button onClick={() => handleButton()} className="servingSize-btn">1</button>
+								<button onClick={() => handleButton()} className="servingSize-btn">2</button>
+								<button onClick={() => handleButton()} className="servingSize-btn">3</button>
+								<button onClick={() => handleButton()} className="servingSize-btn">4</button>
+								<div className="special-grid">
+									<div ref={refSlideOut} className="grid justify-center slideOut">
+										<button onClick={() => handleButton()} className="servingSize-btn">5</button>
+										<button onClick={() => setCustomSize(true)} className="servingSize-btn">X</button>
+									</div>
+									<div ref={refSlideIn} className="servingSize-custom flex align-center space-between p-side-4">
+										<button onClick={() => minus()} className="operator-btn">-</button>
+											<button onClick={() => handleButton()} className="servingSize-btn">{customValue}</button>
+										<button onClick={() => plus()} className="operator-btn">+</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 			</div>
