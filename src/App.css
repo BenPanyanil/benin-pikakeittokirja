@@ -43,6 +43,14 @@ button {
   outline: none;
 }
 
+ul {
+  margin-top: 34px;
+}
+
+li {
+  margin: 6px 0;
+}
+
 .p-side-4 {
   padding: 0 4%;
 }
