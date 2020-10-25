@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useRecipe } from '../RecipeContext'
+import { useRecipeContext } from '../RecipeContext'
+import { MdPerson, MdSchedule } from "react-icons/md";
 
 export default function DetailPage() {
-	const recipe = useRecipe()
+	const { recipe, handleServingSize } = useRecipeContext()
 
 	let history = useHistory()
 	let [customSize, setCustomSize] = useState(false)
@@ -12,7 +13,8 @@ export default function DetailPage() {
 	const refSlideIn = useRef()
 	const refSlideOut = useRef()
 
-	const handleButton = () => {
+	const handleButton = (event) => {
+		handleServingSize(event.target.value)
 		history.push("/recipe")
 	}
 
@@ -45,7 +47,8 @@ export default function DetailPage() {
 				<div className="grid">
 					<div>
 						<p className="mb-3">{recipe.description}</p>
-						<p>{recipe.time}min</p>
+						<span>{recipe.serving_size} <MdPerson /></span>
+						<span>{recipe.time} <MdSchedule /></span>
 						<hr />
 						<ul>
 							{recipe.ingredients.map((item, i) => {
@@ -55,18 +58,18 @@ export default function DetailPage() {
 					</div>
 					<div className="servingSize-calculator">
 						<div className="grid justify-center">
-							<button onClick={() => handleButton()} className="servingSize-btn">1</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">2</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">3</button>
-							<button onClick={() => handleButton()} className="servingSize-btn">4</button>
+							<button onClick={(e) => handleButton(e)} className="servingSize-btn" value={1}>1<MdPerson /></button>
+							<button onClick={(e) => handleButton(e)} className="servingSize-btn" value={2}>2<MdPerson /></button>
+							<button onClick={(e) => handleButton(e)} className="servingSize-btn" value={3}>3<MdPerson /></button>
+							<button onClick={(e) => handleButton(e)} className="servingSize-btn" value={4}>4<MdPerson /></button>
 							<div className="special-grid">
 								<div ref={refSlideOut} className="grid justify-center slideOut">
-									<button onClick={() => handleButton()} className="servingSize-btn">5</button>
+									<button onClick={(e) => handleButton(e)} className="servingSize-btn" value={5}>5<MdPerson /></button>
 									<button onClick={() => setCustomSize(true)} className="servingSize-btn">X</button>
 								</div>
 								<div ref={refSlideIn} className="servingSize-custom flex align-center space-between p-side-4">
 									<button onClick={() => minus()} className="operator-btn">-</button>
-									<button onClick={() => handleButton()} className="servingSize-btn">{customValue}</button>
+									<button onClick={(e) => handleButton(e)} className="servingSize-btn" value={customValue}>{customValue}<MdPerson /></button>
 									<button onClick={() => plus()} className="operator-btn">+</button>
 								</div>
 							</div>

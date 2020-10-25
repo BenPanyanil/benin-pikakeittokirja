@@ -1,31 +1,36 @@
 import React, { useContext, useState } from 'react'
 import recipes from './recipes'
 
-const SetRecipeContext = React.createContext()
 const RecipeContext = React.createContext()
 
-export function useSetRecipe() {
-  return useContext(SetRecipeContext)
-}
-
-export function useRecipe() {
+export function useRecipeContext() {
   return useContext(RecipeContext)
 }
 
 export function RecipeProvider({ children }) {
   let [recipeState, setRecipeState] = useState(0)
+  let [servingSize, setServingSize] = useState(1)
 
-  const setRecipe = (index) => {
+  const handleRecipe = (index) => {
     setRecipeState(recipeState = index)
+  }
+
+  const handleServingSize = (value) => {
+    setServingSize(servingSize = value)
   }
 
   const recipe = recipes[recipeState]
 
+  const data = {
+    recipe,
+    handleRecipe,
+    servingSize,
+    handleServingSize
+  }
+
   return (
-    <SetRecipeContext.Provider value={setRecipe}>
-      <RecipeContext.Provider value={recipe}>
-        {children}
-      </RecipeContext.Provider>
-    </SetRecipeContext.Provider>
+    <RecipeContext.Provider value={data}>
+      {children}
+    </RecipeContext.Provider>
   )
 }

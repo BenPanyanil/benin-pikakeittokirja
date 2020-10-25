@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import { MdArrowBack } from 'react-icons/md'
 
 export default function Nav() {
     let history = useHistory()
@@ -7,7 +8,7 @@ export default function Nav() {
 
     const showBackButton = () => {
 
-        return (location.pathname === '/' ? null : <button onClick={() => handleClick()} className="back-btn">Back</button>)
+        return (location.pathname === '/' ? null : <button onClick={() => handleClick()} className="back-btn flex"><MdArrowBack /></button>)
     }
 
     const handleClick = () => {
@@ -16,8 +17,7 @@ export default function Nav() {
 
     return (
         <nav className="flex space-between">
-            <div>{showBackButton()}</div>
-            <div>menu</div>
+            <div style={{ height: '30px' }}>{showBackButton()}</div>
         </nav>
     )
 }

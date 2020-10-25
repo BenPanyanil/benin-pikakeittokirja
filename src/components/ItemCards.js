@@ -1,22 +1,23 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { useSetRecipe } from '../RecipeContext'
+import { useRecipeContext } from '../RecipeContext'
+import { MdSchedule } from "react-icons/md";
 
 
 export default function ItemCards({ recipe, index }) {
     let history = useHistory()
-    const setRecipe = useSetRecipe()
+    const { handleRecipe } = useRecipeContext()
 
     const handleItem = (index) => {
         history.push("/detail")
-        setRecipe(index)
+        handleRecipe(index)
     }
 
     return (
         <div onClick={() => handleItem(index)} className="item-card card">
             <div className="info-blob flex align-center space-between">
                 <h4>{recipe.dishname}</h4>
-                <span>{`${recipe.time}min`}</span>
+                <p>{recipe.time}min <MdSchedule /></p>
             </div>
         </div>
     )

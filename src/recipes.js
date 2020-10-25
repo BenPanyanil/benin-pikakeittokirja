@@ -20,17 +20,19 @@ const recipes = [
         dishname: 'Chicken Parmesán',
         image: '',
         time: '30',
-        serving_size: 1,
+        serving_size: 4,
         description: 'Maukkaat ja rapeat kanafileet pastakastikkeessa',
         ingredients: [
-            { name: 'Kanafileet', amount: 1, unit: 'kpl' },
+            { name: 'Kanafileet', amount: 4, unit: 'kpl' },
             { name: 'Korppujauho', amount: 2, unit: 'dl' },
             { name: 'Kananmuna', amount: 1, unit: 'kpl' },
-            { name: 'Spagetti', amount: 2, unit: 'dl' },
+            { name: 'Spagetti', amount: 400, unit: 'g' },
         ],
         instructions: [
             'Keitä vesi kiehuvaksi. ',
             'Kaada kiehuvaan veteen nuudelit ja mausteet.',
+            'Keitä muutama minuutti kunnes pehmenevät',
+            'Kaada nuudelikeitto lautaselle ja nauti',
             'Keitä muutama minuutti kunnes pehmenevät',
             'Kaada nuudelikeitto lautaselle ja nauti'
         ]

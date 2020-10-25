@@ -1,34 +1,37 @@
 import React from 'react'
+import { useRecipeContext } from '../RecipeContext'
+import { MdPerson } from "react-icons/md";
 
 export default function RecipePage() {
 
-	const empty = []
+	const { recipe, servingSize } = useRecipeContext()
 
 	return (
 		<>
 			<div className="p-side-6">
-				<div className></div>
-				<h1></h1>
-				<span>Annos koko: </span>
-				<span>Valmistus aika: </span>
+				<h1>{recipe.dishname}</h1>
+				<div>
+					<span>Valittu annos koko:</span>
+					<span style={{ fontWeight: 600 }}>{servingSize} <MdPerson /></span>
+				</div>
 				<div className="recipe grid">
 					<table>
 						<tbody>
-							{empty.map((item, i) => {
+							{recipe.ingredients.map((item, i) => {
 								return (
 									<tr key={i}>
-										<td></td>
-										<td><span></span></td>
+										<td>{item.name}</td>
+										<td>{Math.ceil((item.amount / recipe.serving_size) * servingSize)}<span> {item.unit}</span></td>
 									</tr>
 								)
 							})}
 						</tbody>
 					</table>
 					<ol>
-						{empty.map((item, i) => {
+						{recipe.instructions.map((item, i) => {
 							return (
-								<li>
-									<p></p>
+								<li key={i}>
+									<p>{item}</p>
 								</li>
 							)
 						})}
