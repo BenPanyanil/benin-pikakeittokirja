@@ -2,35 +2,43 @@ import React, { useContext, useState } from 'react'
 import recipes from './recipes'
 
 const RecipeContext = React.createContext()
+const TransitionContext = React.createContext()
 
 export function useRecipeContext() {
   return useContext(RecipeContext)
 }
 
+export function useTriggerTransition() {
+  return useContext(TransitionContext)
+}
+
 export function RecipeProvider({ children }) {
-  let [recipeState, setRecipeState] = useState(0)
-  let [servingSize, setServingSize] = useState(1)
+  const [transition, setTransition] = useState(false)
 
   const handleRecipe = (index) => {
-    setRecipeState(recipeState = index)
+    localStorage.setItem('recipeState', index)
   }
 
   const handleServingSize = (value) => {
-    setServingSize(servingSize = value)
+    localStorage.setItem('servingSize', value)
   }
 
-  const recipe = recipes[recipeState]
-
-  const data = {
-    recipe,
+  const recipeData = {
+    recipes,
     handleRecipe,
-    servingSize,
-    handleServingSize
+    handleServingSize,
+  }
+
+  const transitionData = {
+    transition,
+    setTransition
   }
 
   return (
-    <RecipeContext.Provider value={data}>
-      {children}
-    </RecipeContext.Provider>
+    <TransitionContext.Provider value={transitionData}>
+      <RecipeContext.Provider value={recipeData}>
+        {children}
+      </RecipeContext.Provider>
+    </TransitionContext.Provider>
   )
 }

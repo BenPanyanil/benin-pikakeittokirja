@@ -7,8 +7,9 @@ import { RecipeProvider } from './RecipeContext'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import FrontPage from './pages/FrontPage'
-import DetailPage from './pages/DetailPage'
-import RecipePage from './pages/RecipePage'
+import Details from './pages/Details'
+import Recipe from './pages/Recipe'
+import TransitionOverlay from './components/TransitionOverlay'
 
 function App() {
 
@@ -19,10 +20,11 @@ function App() {
           <Nav />
           <Switch>
             <Route path="/" exact component={FrontPage} />
-            <Route path="/detail" component={DetailPage} />
-            <Route path="/recipe" component={RecipePage} />
+            <Route path="/detail" component={Details} />
+            <Route path="/recipe" component={Recipe} />
           </Switch>
           <Footer />
+          <TransitionOverlay />
         </div>
       </Router>
     </RecipeProvider>
