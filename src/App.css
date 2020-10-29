@@ -1,6 +1,7 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  background-color: #e6f8f9;
 }
 
 * {
@@ -11,21 +12,25 @@ body {
   font-family: "Poppins", sans-serif;
   max-width: 1000px;
   min-height: 120vh;
-  margin: 0 auto;
-  background-color: #efefef;
+  margin: 12px auto;
+  background-color: #e6f8f9;
   padding: 100px 0;
   position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(177, 232, 237, 0.8);
 }
 
 nav {
-  background-color: #dddddd;
+  background-color: #b1e8ed;
   position: absolute;
   z-index: 9999;
   top: 0;
   left: 0;
-  padding: 20px 6%;
+  padding: 15px 6%;
   width: 100%;
   max-width: 1000px;
+  border-radius: 8px 8px 0 0;
 }
 
 footer {
@@ -35,8 +40,9 @@ footer {
   padding: 10px 0;
   text-align: center;
   font-size: 12px;
-  background-color: #dddddd;
-  color: #666666;
+  background-color: #b1e8ed;
+  color: #ffffff;
+  border-radius: 0 0 8px 8px;
 }
 
 button {
@@ -51,6 +57,19 @@ ul {
 
 li {
   margin: 6px 0;
+  color: #212227 !important;
+}
+
+h1 {
+  color: #e86ed0 !important;
+}
+
+h4 {
+  color: #212227 !important;
+}
+
+p, span {
+  color: #212227 !important;
 }
 
 .erect-line {
@@ -77,6 +96,10 @@ li {
 
 .mt-5 {
   margin-top: 5rem;
+}
+
+.mt-6 {
+  margin-top: 6rem;
 }
 
 .flex {
@@ -119,9 +142,8 @@ li {
   width: 100%;
   min-width: 200px;
   height: 300px;
-  background-color: grey;
   position: relative;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition-duration: 250ms;
 }
@@ -134,11 +156,12 @@ li {
   background-color: transparent;
   font-size: 20px;
   padding: 3px 7px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #e86ed0;;
   border-radius: 3px;
   transition: 600ms;
   transform: translateX(-50px);
   visibility: hidden;
+  color: #e86ed0;;
   opacity: 0;
 }
 
@@ -151,7 +174,8 @@ li {
 .transition-overlay {
   position: absolute;
   top: 0;
-  background-color: #dddddd;
+  background-color: #b1e8ed;
+  border-radius: 8px;
   width: 100%;
   height: 100%;
   clip-path: inset(0px 0% 0px 100%);
@@ -206,14 +230,14 @@ td {
 .servingSize-calculator {
   justify-self: end;
   padding: 30px 25px;
-  border: 1px solid #999999;
+  border: 1px solid rgba(33, 34, 39, 0.5);
   border-radius: 8px;
   width: 280px;
 }
 
 .servingSize-btn {
-  background-color: #111111;
-  color: #fff;
+  background-color: #b1e8ed;
+  color: #000;
   width: 85px;
   height: 85px;
   border-radius: 100px;
@@ -231,8 +255,13 @@ td {
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  background-color: #999999;
-  color: #ffffff;
+  background-color: #e86ed0;
+  color: #e6f8f9;
+  transition-duration: 250ms;
+}
+
+.operator-btn:hover {
+  transform: scale(1.08);
 }
 
 .special-grid {
@@ -265,4 +294,11 @@ td {
   width: 100%;
   height: 500px;
   background-color: plum;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

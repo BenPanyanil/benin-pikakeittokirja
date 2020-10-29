@@ -1,7 +1,9 @@
+import Chicken from './img/chicken.jpg'
+import Noodle from './img/noodles.jpg'
 const recipes = [
     {
         dishname: 'Nuudeli',
-        image: '',
+        image: Noodle,
         time: '10',
         serving_size: 1,
         description: 'Helpot ja epälöysät nuudelit',
@@ -18,7 +20,7 @@ const recipes = [
     },
     {
         dishname: 'Chicken Parmesán',
-        image: '',
+        image: Chicken,
         time: '30',
         serving_size: 4,
         description: 'Maukkaat ja rapeat kanafileet pastakastikkeessa',

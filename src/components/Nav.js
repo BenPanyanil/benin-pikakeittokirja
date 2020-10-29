@@ -21,7 +21,7 @@ export default function Nav() {
 
     return (
         <nav className="flex space-between">
-            <div style={{ height: '30px' }}><button onClick={() => handleClick()} className={`back-btn flex ${visibility && "back-btn-visible"}`}><MdArrowBack /></button></div>
+            <div style={{ height: '28px' }}><button onClick={() => handleClick()} className={`back-btn flex ${visibility && "back-btn-visible"}`}><MdArrowBack /></button></div>
         </nav>
     )
 }

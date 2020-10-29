@@ -41,8 +41,8 @@ export default function RecipePage() {
                     </ol>
                 </div>
             </div>
-            <div className="img-slider mt-5">
-                <div className="img"></div>
+            <div className="img-slider mt-6">
+                <img src={recipe.image} alt="dish-img"></img>
             </div>
         </>
     )

@@ -11,18 +11,19 @@ export default function ItemCards({ recipe, index }) {
 	const { setTransition } = useTriggerTransition()
 
 	const handleItem = (index) => {
-		setTransition(true)
 		handleRecipe(index)
 		setTimeout(() => {
 			history.push("/detail")
 		}, 500)
 		setTimeout(() => {
 			setTransition(false)
-		}, 1100)
+		}, 1000)
+		setTransition(true)
 	}
 
 	return (
-		<div onClick={() => handleItem(index)} className="item-card card">
+		<div onClick={() => handleItem(index)} className="card">
+			<img src={recipe.image} alt="dish-img"></img>
 			<div className="info-blob flex align-center space-between">
 				<h4>{recipe.dishname}</h4>
 				<p>{recipe.time}min <MdSchedule /></p>
