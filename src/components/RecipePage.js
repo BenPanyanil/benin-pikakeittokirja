@@ -11,7 +11,7 @@ export default function RecipePage() {
 
     return (
         <>
-            <div className="p-side-6">
+            <div className="p-side-6 mt-4">
                 <h1>{recipe.dishname}</h1>
                 <div>
                     <span>Valittu annos koko:</span>

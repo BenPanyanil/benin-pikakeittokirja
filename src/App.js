@@ -17,6 +17,7 @@ function App() {
     <RecipeProvider>
       <Router>
         <div className="App">
+          <TransitionOverlay />
           <Nav />
           <Switch>
             <Route path="/" exact component={FrontPage} />
@@ -24,7 +25,6 @@ function App() {
             <Route path="/recipe" component={Recipe} />
           </Switch>
           <Footer />
-          <TransitionOverlay />
         </div>
       </Router>
     </RecipeProvider>
