@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRecipeContext } from '../RecipeContext'
+import { useRecipeContext } from '../Context'
 import { MdPerson } from "react-icons/md";
 
 export default function RecipePage() {

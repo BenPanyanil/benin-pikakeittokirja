@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import { useColorThemeContext } from '../Context'
 import { MdArrowBack } from 'react-icons/md'
 import { MdInfoOutline } from 'react-icons/md'
 import { MdColorLens } from 'react-icons/md'
@@ -8,6 +9,7 @@ export default function Nav() {
     let history = useHistory()
     let location = useLocation()
     const [visibility, setVisibility] = useState(false)
+    const { setColorPopup } = useColorThemeContext()
 
     useEffect(() => {
         if (location.pathname !== '/') {
@@ -35,8 +37,7 @@ export default function Nav() {
                 </div>
                 <button onClick={() => handleClick()} className={`back-btn flex align-center ${visibility && "back-btn-visible"}`}><MdArrowBack /></button>
             </div>
-            <button className="theme-btn"><span><MdColorLens />
-            </span></button>
+            <button className="colorPopup-btn" onClick={() => setColorPopup(true)}><MdColorLens /></button>
         </nav>
     )
 }

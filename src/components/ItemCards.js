@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { useRecipeContext } from '../RecipeContext'
-import { useTriggerTransition } from '../RecipeContext'
+import { useRecipeContext } from '../Context'
+import { useTriggerTransition } from '../Context'
 import { MdSchedule } from "react-icons/md";
 
 

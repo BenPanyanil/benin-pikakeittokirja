@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdSchedule } from "react-icons/md";
-import { useTriggerTransition } from '../RecipeContext'
+import { useTriggerTransition } from '../Context'
 
 export default function TransitionOverlay() {
     const { transition } = useTriggerTransition()

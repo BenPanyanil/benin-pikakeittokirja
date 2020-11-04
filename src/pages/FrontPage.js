@@ -12,7 +12,7 @@ export default function FrontPage() {
   return (
     <div>
       <ShowReel />
-      <div className="p-side-6 mt-5">
+      <div className="p-side-6 mt-4">
         <h1>Kaikki reseptit</h1>
         <div className="item-pool grid">
           {recipes.map((item, i) => {

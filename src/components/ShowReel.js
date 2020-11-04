@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useRecipeContext } from '../RecipeContext';
-import { useTriggerTransition } from '../RecipeContext'
+import { useRecipeContext } from '../Context';
+import { useTriggerTransition } from '../Context'
 import { FaRandom } from 'react-icons/fa'
 
 export default function ShowReel() {

@@ -2,19 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 
-import { RecipeProvider } from './RecipeContext'
+import { ContextProvider } from './Context'
 
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import FrontPage from './pages/FrontPage'
 import Details from './pages/Details'
 import Recipe from './pages/Recipe'
+import ColorThemePopup from './components/ColorThemePopup'
 import TransitionOverlay from './components/TransitionOverlay'
 
 function App() {
 
   return (
-    <RecipeProvider>
+    <ContextProvider>
       <Router>
         <div className="App">
           <TransitionOverlay />
@@ -26,8 +27,9 @@ function App() {
           </Switch>
           <Footer />
         </div>
+        <ColorThemePopup />
       </Router>
-    </RecipeProvider>
+    </ContextProvider>
   );
 }
 
