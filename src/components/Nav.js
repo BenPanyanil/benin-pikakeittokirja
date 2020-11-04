@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { MdArrowBack } from 'react-icons/md'
+import { MdInfoOutline } from 'react-icons/md'
+import { MdColorLens } from 'react-icons/md'
 
 export default function Nav() {
     let history = useHistory()
@@ -21,7 +23,20 @@ export default function Nav() {
 
     return (
         <nav className="flex space-between">
-            <div style={{ height: '28px' }}><button onClick={() => handleClick()} className={`back-btn flex ${visibility && "back-btn-visible"}`}><MdArrowBack /></button></div>
+            <div className="relative" style={{ height: '28px' }}>
+                <div className={`tooltip ${visibility && "tooltip-hidden"}`}><MdInfoOutline />
+                    <span className="tooltipText">
+                        Hei, tämä projekti on tarkoitettu työnhaun tueksi.
+                        Selaile sovellusta vapaasti. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta ja valita annoskokoja halusi mukaan!
+                        <br />
+                        <br />
+                        <a href="https://github.com/BenPanyanil/benin-pikakeittokirja" rel="noopener noreferrer" target="_blank">GitHub</a>
+                    </span>
+                </div>
+                <button onClick={() => handleClick()} className={`back-btn flex align-center ${visibility && "back-btn-visible"}`}><MdArrowBack /></button>
+            </div>
+            <button className="theme-btn"><span><MdColorLens />
+            </span></button>
         </nav>
     )
 }

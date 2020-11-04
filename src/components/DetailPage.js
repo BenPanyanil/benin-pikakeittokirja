@@ -19,6 +19,8 @@ export default function Detail() {
 
 	const handleButton = (int) => {
 		handleServingSize(int)
+		document.body.scrollTop = 0; // For Safari
+		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 		setTimeout(() => {
 			history.push("/recipe")
 		}, 500)
@@ -54,7 +56,7 @@ export default function Detail() {
 
 	return (
 		<>
-			<div className="p-side-6 mt-4">
+			<div className="p-side-6 mt-5">
 				<h1>{recipe.dishname}</h1>
 				<div className="grid">
 					<div>
