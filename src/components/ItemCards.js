@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useRecipeContext } from '../Context'
 import { useTriggerTransition } from '../Context'
+import { useColorThemeContext } from '../Context'
 import { MdSchedule } from "react-icons/md";
 
 
@@ -9,6 +10,7 @@ export default function ItemCards({ recipe, index }) {
 	let history = useHistory()
 	const { handleRecipe } = useRecipeContext()
 	const { setTransition } = useTriggerTransition()
+	const { colorTheme } = useColorThemeContext();
 
 	const handleItem = (index) => {
 		handleRecipe(index)
@@ -27,7 +29,7 @@ export default function ItemCards({ recipe, index }) {
 		<div onClick={() => handleItem(index)} className="card">
 			<img src={recipe.image} alt="dish-img"></img>
 			<div className="info-blob flex align-center space-between">
-				<h4>{recipe.dishname}</h4>
+				<h4 style={{ color: colorTheme.primary }}>{recipe.dishname}</h4>
 				<p>{recipe.time}min <MdSchedule /></p>
 			</div>
 		</div>

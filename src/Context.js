@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import recipes from './recipes'
+import colorThemes from './colorThemes'
 
 const RecipeContext = React.createContext()
 const TransitionContext = React.createContext()
@@ -20,6 +21,7 @@ export function useColorThemeContext() {
 export function ContextProvider({ children }) {
   const [transition, setTransition] = useState(false)
   const [colorPopup, setColorPopup] = useState(false)
+  const [themeState, setThemeState] = useState(0)
 
   const handleRecipe = (index) => {
     localStorage.setItem('recipeState', index)
@@ -28,6 +30,12 @@ export function ContextProvider({ children }) {
   const handleServingSize = (value) => {
     localStorage.setItem('servingSize', value)
   }
+
+  const handleThemeState = (index) => {
+    localStorage.setItem('themeState', index)
+  }
+
+  const colorTheme = colorThemes[localStorage.getItem('themeState') || themeState]
 
   const recipeData = {
     recipes,
@@ -42,7 +50,10 @@ export function ContextProvider({ children }) {
 
   const colorThemeData = {
     colorPopup,
-    setColorPopup
+    setColorPopup,
+    colorTheme,
+    setThemeState,
+    handleThemeState
   }
 
   return (

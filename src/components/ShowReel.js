@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useRecipeContext } from '../Context';
 import { useTriggerTransition } from '../Context'
+import { useColorThemeContext } from '../Context'
 import { FaRandom } from 'react-icons/fa'
 
 export default function ShowReel() {
   let history = useHistory()
   const { recipes, handleRecipe } = useRecipeContext()
   const { setTransition } = useTriggerTransition()
+  const { colorTheme } = useColorThemeContext();
 
   const getRandomInt = () => {
     return Math.floor(Math.random() * Math.floor(recipes.length));
@@ -50,7 +52,7 @@ export default function ShowReel() {
       <div className="showOverlay"></div>
       <div className="showContent p-side-6 mt-3">
         <p style={{ color: '#ffffff' }}>Päivän random resepti</p>
-        <h1 style={{ color: '#EE4266' }}>{recipe.dishname}</h1>
+        <h1 style={{ color: colorTheme.primary }}>{recipe.dishname}</h1>
         <div className="flex">
           <button className="show-btn flex align-center" onClick={() => handleButton(randomInt)}>Katso resepti</button>
           <button className="show-btn flex align-center" onClick={() => handleRandom()}><FaRandom /></button>

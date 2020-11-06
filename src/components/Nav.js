@@ -3,13 +3,13 @@ import { useHistory, useLocation } from 'react-router-dom'
 import { useColorThemeContext } from '../Context'
 import { MdArrowBack } from 'react-icons/md'
 import { MdInfoOutline } from 'react-icons/md'
-import { MdColorLens } from 'react-icons/md'
+import colorThemeIcon from '../img/colorTheme.svg'
 
 export default function Nav() {
     let history = useHistory()
     let location = useLocation()
     const [visibility, setVisibility] = useState(false)
-    const { setColorPopup } = useColorThemeContext()
+    const { setColorPopup, colorTheme } = useColorThemeContext()
 
     useEffect(() => {
         if (location.pathname !== '/') {
@@ -24,9 +24,9 @@ export default function Nav() {
     }
 
     return (
-        <nav className="flex space-between">
+        <nav style={{ background: colorTheme.background }} className="flex space-between align-center">
             <div className="relative" style={{ height: '28px' }}>
-                <div className={`tooltip ${visibility && "tooltip-hidden"}`}><MdInfoOutline />
+                <div className={`tooltip ${visibility && "tooltip-hidden"} ${colorTheme.dark && 'darkText'}`}><MdInfoOutline />
                     <span className="tooltipText">
                         Hei, tämä projekti on tarkoitettu työnhaun tueksi.
                         Selaile sovellusta vapaasti. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta ja valita annoskokoja halusi mukaan!
@@ -35,9 +35,9 @@ export default function Nav() {
                         <a href="https://github.com/BenPanyanil/benin-pikakeittokirja" rel="noopener noreferrer" target="_blank">GitHub</a>
                     </span>
                 </div>
-                <button onClick={() => handleClick()} className={`back-btn flex align-center ${visibility && "back-btn-visible"}`}><MdArrowBack /></button>
+                <button onClick={() => handleClick()} className={`back-btn flex align-center ${visibility && "back-btn-visible"} ${colorTheme.dark && 'darkText darkBorder'}`}><MdArrowBack /></button>
             </div>
-            <button className="colorPopup-btn" onClick={() => setColorPopup(true)}><MdColorLens /></button>
-        </nav>
+            <button className="colorPopup-btn" onClick={() => setColorPopup(true)}><img src={colorThemeIcon} className="colorThemeIcon" alt="colorThemeIcon"></img></button>
+        </nav >
     )
 }

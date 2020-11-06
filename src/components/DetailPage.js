@@ -2,11 +2,13 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useRecipeContext } from '../Context'
 import { useTriggerTransition } from '../Context'
+import { useColorThemeContext } from '../Context'
 import { MdPerson, MdSchedule } from "react-icons/md";
 
 export default function Detail() {
 	const { recipes, handleServingSize } = useRecipeContext()
 	const { setTransition } = useTriggerTransition()
+	const { colorTheme } = useColorThemeContext();
 
 	const recipe = recipes[localStorage.getItem('recipeState')]
 
@@ -57,7 +59,7 @@ export default function Detail() {
 	return (
 		<>
 			<div className="p-side-6 mt-5">
-				<h1>{recipe.dishname}</h1>
+				<h1 style={{ color: colorTheme.secondary }}>{recipe.dishname}</h1>
 				<div className="grid">
 					<div>
 						<p className="mb-3">{recipe.description}</p>
@@ -72,19 +74,19 @@ export default function Detail() {
 					</div>
 					<div className="servingSize-calculator">
 						<div className="grid justify-center">
-							<button onClick={() => handleButton(1)} className="servingSize-btn">1<MdPerson /></button>
-							<button onClick={() => handleButton(2)} className="servingSize-btn">2<MdPerson /></button>
-							<button onClick={() => handleButton(3)} className="servingSize-btn">3<MdPerson /></button>
-							<button onClick={() => handleButton(4)} className="servingSize-btn">4<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(1)} className="servingSize-btn">1<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(2)} className="servingSize-btn">2<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(3)} className="servingSize-btn">3<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(4)} className="servingSize-btn">4<MdPerson /></button>
 							<div className="special-grid">
 								<div ref={refSlideOut} className="grid justify-center slideOut">
-									<button onClick={() => handleButton(5)} className="servingSize-btn">5<MdPerson /></button>
-									<button onClick={() => setCustomPicker(true)} className="servingSize-btn">X</button>
+									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(5)} className="servingSize-btn">5<MdPerson /></button>
+									<button style={{ background: colorTheme.primary }} onClick={() => setCustomPicker(true)} className="servingSize-btn">X</button>
 								</div>
 								<div ref={refSlideIn} className="servingSize-custom flex align-center space-between p-side-4">
-									<button onClick={() => minus()} className="operator-btn">-</button>
-									<button onClick={() => handleButton(customValue)} className="servingSize-btn">{customValue}<MdPerson /></button>
-									<button onClick={() => plus()} className="operator-btn">+</button>
+									<button style={{ background: colorTheme.secondary }} onClick={() => minus()} className="operator-btn">-</button>
+									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(customValue)} className="servingSize-btn">{customValue}<MdPerson /></button>
+									<button style={{ background: colorTheme.secondary }} onClick={() => plus()} className="operator-btn">+</button>
 								</div>
 							</div>
 						</div>

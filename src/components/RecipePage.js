@@ -1,10 +1,12 @@
 import React from 'react'
 import { useRecipeContext } from '../Context'
 import { MdPerson } from "react-icons/md";
+import { useColorThemeContext } from '../Context'
 
 export default function RecipePage() {
 
     const { recipes } = useRecipeContext()
+    const { colorTheme } = useColorThemeContext();
 
     const recipe = recipes[localStorage.getItem('recipeState')]
     const servingSize = localStorage.getItem('servingSize')
@@ -12,7 +14,7 @@ export default function RecipePage() {
     return (
         <>
             <div className="p-side-6 mt-5">
-                <h1>{recipe.dishname}</h1>
+                <h1 style={{ color: colorTheme.secondary }}>{recipe.dishname}</h1>
                 <div>
                     <span>Valittu annos koko:</span>
                     <span style={{ fontWeight: 600 }}>{servingSize} <MdPerson /></span>
