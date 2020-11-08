@@ -12,7 +12,7 @@ export default function ColorThemePopup() {
       <div className={`colorThemePopup ${colorPopup && 'visible'}`}>
         <h3 className="text-center">Valitse väriteema</h3>
         <div className="line mb-2" />
-        <div className="grid column-gap-2">
+        <div className="fixed-grid">
           {colorThemes.map((item, i) => {
             return <ColorPicker key={i} index={i} name={item.name} primary={item.primary} secondary={item.secondary} background={item.background} />
           })}

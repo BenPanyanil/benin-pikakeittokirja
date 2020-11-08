@@ -50,6 +50,8 @@ export default function Detail() {
 		if (customPicker) {
 			refSlideIn.current.style.left = '0px'
 			refSlideIn.current.style.opacity = '1'
+			refSlideIn.current.style.visibility = 'visible'
+			refSlideOut.current.style.visibility = 'hidden'
 			refSlideOut.current.style.opacity = '0'
 			refSlideOut.current.style.left = '-25%'
 		}
@@ -73,13 +75,13 @@ export default function Detail() {
 						</ul>
 					</div>
 					<div className="servingSize-calculator">
-						<div className="grid justify-center">
+						<div className="small-grid justify-center">
 							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(1)} className="servingSize-btn">1<MdPerson /></button>
 							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(2)} className="servingSize-btn">2<MdPerson /></button>
 							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(3)} className="servingSize-btn">3<MdPerson /></button>
 							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(4)} className="servingSize-btn">4<MdPerson /></button>
 							<div className="special-grid">
-								<div ref={refSlideOut} className="grid justify-center slideOut">
+								<div ref={refSlideOut} className="small-grid justify-center slideOut">
 									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(5)} className="servingSize-btn">5<MdPerson /></button>
 									<button style={{ background: colorTheme.primary }} onClick={() => setCustomPicker(true)} className="servingSize-btn">X</button>
 								</div>

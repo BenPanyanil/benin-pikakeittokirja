@@ -11,6 +11,8 @@ export default function Nav() {
     const [visibility, setVisibility] = useState(false)
     const { setColorPopup, colorTheme } = useColorThemeContext()
 
+    let width = window.matchMedia('(max-width: 600px)')
+
     useEffect(() => {
         if (location.pathname !== '/') {
             setVisibility(true)
@@ -23,10 +25,16 @@ export default function Nav() {
         history.goBack()
     }
 
+    const alertTip = (x) => {
+        if (x.matches) {
+            alert('Hei, tämä projekti on tarkoitettu työnhaun tueksi. Selaile sovellusta vapaasti. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta ja valita annoskokoja halusi mukaan!')
+        }
+    }
+
     return (
         <nav style={{ background: colorTheme.background }} className="flex space-between align-center">
             <div className="relative" style={{ height: '28px' }}>
-                <div className={`tooltip ${visibility && "tooltip-hidden"} ${colorTheme.dark && 'darkText'}`}><MdInfoOutline />
+                <div className={`tooltip ${visibility && "tooltip-hidden"} ${colorTheme.dark && 'darkText'}`} onClick={() => alertTip(width)}><MdInfoOutline />
                     <span className="tooltipText">
                         Hei, tämä projekti on tarkoitettu työnhaun tueksi.
                         Selaile sovellusta vapaasti. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta ja valita annoskokoja halusi mukaan!
