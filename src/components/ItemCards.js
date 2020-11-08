@@ -11,7 +11,7 @@ export default function ItemCards({ recipe, index }) {
 	const { handleRecipe } = useRecipeContext()
 	const { setTransition } = useTriggerTransition()
 	const { colorTheme } = useColorThemeContext();
-	let x = window.matchMedia("(max-width: 600px)")
+	let x = window.matchMedia("(max-width: 1000px)")
 
 	const handleItem = (index, x) => {
 		handleRecipe(index)

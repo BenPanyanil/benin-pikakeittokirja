@@ -10,7 +10,7 @@ export default function ShowReel() {
   const { recipes, handleRecipe } = useRecipeContext()
   const { setTransition } = useTriggerTransition()
   const { colorTheme } = useColorThemeContext();
-  let x = window.matchMedia("(max-width: 600px)")
+  let x = window.matchMedia("(max-width: 1000px)")
 
   const getRandomInt = () => {
     return Math.floor(Math.random() * Math.floor(recipes.length));

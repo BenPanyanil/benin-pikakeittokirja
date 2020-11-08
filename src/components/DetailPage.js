@@ -15,7 +15,7 @@ export default function Detail() {
 	let history = useHistory()
 	let [customPicker, setCustomPicker] = useState(false)
 	let [customValue, setCustomValue] = useState(5)
-	let x = window.matchMedia("(max-width: 600px)")
+	let x = window.matchMedia("(max-width: 1000px)")
 
 	const refSlideIn = useRef()
 	const refSlideOut = useRef()
