@@ -80,7 +80,7 @@ export default function Detail() {
 						</ul>
 					</div>
 					<div className="servingSize-calculator">
-						<p>kakka</p>
+						<h4 className="text-center mb-2" style={{ color: colorTheme.primary }}>Valitse annoskoko:</h4>
 						<div className="small-grid justify-center">
 							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(1, x)} className="servingSize-btn">1<MdPerson /></button>
 							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(2, x)} className="servingSize-btn">2<MdPerson /></button>
