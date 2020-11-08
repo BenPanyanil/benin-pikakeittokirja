@@ -11,22 +11,27 @@ export default function ItemCards({ recipe, index }) {
 	const { handleRecipe } = useRecipeContext()
 	const { setTransition } = useTriggerTransition()
 	const { colorTheme } = useColorThemeContext();
+	let x = window.matchMedia("(max-width: 600px)")
 
-	const handleItem = (index) => {
+	const handleItem = (index, x) => {
 		handleRecipe(index)
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-		setTimeout(() => {
+		if (x.matches) {
 			history.push("/detail")
-		}, 500)
-		setTimeout(() => {
-			setTransition(false)
-		}, 1000)
-		setTransition(true)
+		} else {
+			setTimeout(() => {
+				history.push("/detail")
+			}, 500)
+			setTimeout(() => {
+				setTransition(false)
+			}, 1000)
+			setTransition(true)
+		}
 	}
 
 	return (
-		<div onClick={() => handleItem(index)} className="card">
+		<div onClick={() => handleItem(index, x)} className="card">
 			<img src={recipe.image} alt="dish-img"></img>
 			<div className="info-blob flex align-center space-between">
 				<h4 style={{ color: colorTheme.primary }}>{recipe.dishname}</h4>

@@ -15,21 +15,26 @@ export default function Detail() {
 	let history = useHistory()
 	let [customPicker, setCustomPicker] = useState(false)
 	let [customValue, setCustomValue] = useState(5)
+	let x = window.matchMedia("(max-width: 600px)")
 
 	const refSlideIn = useRef()
 	const refSlideOut = useRef()
 
-	const handleButton = (int) => {
+	const handleButton = (int, x) => {
 		handleServingSize(int)
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-		setTimeout(() => {
+		if (x.matches) {
 			history.push("/recipe")
-		}, 500)
-		setTimeout(() => {
-			setTransition(false)
-		}, 1000)
-		setTransition(true)
+		} else {
+			setTimeout(() => {
+				history.push("/recipe")
+			}, 500)
+			setTimeout(() => {
+				setTransition(false)
+			}, 1000)
+			setTransition(true)
+		}
 	}
 
 
@@ -75,19 +80,20 @@ export default function Detail() {
 						</ul>
 					</div>
 					<div className="servingSize-calculator">
+						<p>kakka</p>
 						<div className="small-grid justify-center">
-							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(1)} className="servingSize-btn">1<MdPerson /></button>
-							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(2)} className="servingSize-btn">2<MdPerson /></button>
-							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(3)} className="servingSize-btn">3<MdPerson /></button>
-							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(4)} className="servingSize-btn">4<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(1, x)} className="servingSize-btn">1<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(2, x)} className="servingSize-btn">2<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(3, x)} className="servingSize-btn">3<MdPerson /></button>
+							<button style={{ background: colorTheme.primary }} onClick={() => handleButton(4, x)} className="servingSize-btn">4<MdPerson /></button>
 							<div className="special-grid">
 								<div ref={refSlideOut} className="small-grid justify-center slideOut">
-									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(5)} className="servingSize-btn">5<MdPerson /></button>
+									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(5, x)} className="servingSize-btn">5<MdPerson /></button>
 									<button style={{ background: colorTheme.primary }} onClick={() => setCustomPicker(true)} className="servingSize-btn">X</button>
 								</div>
 								<div ref={refSlideIn} className="servingSize-custom flex align-center space-between p-side-4">
 									<button style={{ background: colorTheme.secondary }} onClick={() => minus()} className="operator-btn">-</button>
-									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(customValue)} className="servingSize-btn">{customValue}<MdPerson /></button>
+									<button style={{ background: colorTheme.primary }} onClick={() => handleButton(customValue, x)} className="servingSize-btn">{customValue}<MdPerson /></button>
 									<button style={{ background: colorTheme.secondary }} onClick={() => plus()} className="operator-btn">+</button>
 								</div>
 							</div>

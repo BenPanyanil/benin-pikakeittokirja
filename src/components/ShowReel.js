@@ -10,6 +10,7 @@ export default function ShowReel() {
   const { recipes, handleRecipe } = useRecipeContext()
   const { setTransition } = useTriggerTransition()
   const { colorTheme } = useColorThemeContext();
+  let x = window.matchMedia("(max-width: 600px)")
 
   const getRandomInt = () => {
     return Math.floor(Math.random() * Math.floor(recipes.length));
@@ -19,17 +20,21 @@ export default function ShowReel() {
   let recipe = recipes[randomInt];
 
 
-  const handleButton = (index) => {
+  const handleButton = (index, x) => {
     handleRecipe(index)
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    setTimeout(() => {
+    if (x.matches) {
       history.push("/detail")
-    }, 500)
-    setTimeout(() => {
-      setTransition(false)
-    }, 1000)
-    setTransition(true)
+    } else {
+      setTimeout(() => {
+        history.push("/detail")
+      }, 500)
+      setTimeout(() => {
+        setTransition(false)
+      }, 1000)
+      setTransition(true)
+    }
   }
 
   const handleRandom = () => {
@@ -54,7 +59,7 @@ export default function ShowReel() {
         <p style={{ color: '#ffffff' }}>Päivän random resepti</p>
         <h1 style={{ color: colorTheme.primary }}>{recipe.dishname}</h1>
         <div className="flex">
-          <button className="show-btn flex align-center" onClick={() => handleButton(randomInt)}>Katso resepti</button>
+          <button className="show-btn flex align-center" onClick={() => handleButton(randomInt, x)}>Katso resepti</button>
           <button className="show-btn flex align-center" onClick={() => handleRandom()}><FaRandom /></button>
         </div>
       </div>

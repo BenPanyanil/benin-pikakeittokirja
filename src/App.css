@@ -498,6 +498,10 @@ img {
 }
 
 @media only screen and (max-width: 1000px) {
+  html {
+    scroll-behavior: unset;
+  }
+
   body {
     padding: 0;
   }
