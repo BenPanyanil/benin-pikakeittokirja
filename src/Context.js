@@ -24,18 +24,18 @@ export function ContextProvider({ children }) {
   const [themeState, setThemeState] = useState(0)
 
   const handleRecipe = (index) => {
-    localStorage.setItem('recipeState', index)
+    sessionStorage.setItem('recipeState', index)
   }
 
   const handleServingSize = (value) => {
-    localStorage.setItem('servingSize', value)
+    sessionStorage.setItem('servingSize', value)
   }
 
   const handleThemeState = (index) => {
-    localStorage.setItem('themeState', index)
+    sessionStorage.setItem('themeState', index)
   }
 
-  const colorTheme = colorThemes[localStorage.getItem('themeState') || themeState]
+  const colorTheme = colorThemes[sessionStorage.getItem('themeState') || themeState]
 
   const recipeData = {
     recipes,

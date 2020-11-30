@@ -27,7 +27,7 @@ export default function Nav() {
 
     const alertTip = (x) => {
         if (x.matches) {
-            alert('Hei, tämä projekti on tarkoitettu työnhaun tueksi. Selaile sovellusta vapaasti. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta ja valita annoskokoja halusi mukaan!')
+            alert('Hei, tämä projekti on tarkoitettu työnhaun tueksi. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta, etsiä tiettyä reseptiä ja valita annoskokoja halusi mukaan!')
         }
     }
 
@@ -36,8 +36,7 @@ export default function Nav() {
             <div className="relative" style={{ height: '28px' }}>
                 <div className={`tooltip ${visibility && "tooltip-hidden"} ${colorTheme.dark && 'darkText'}`} onClick={() => alertTip(width)}><MdInfoOutline />
                     <span className="tooltipText">
-                        Hei, tämä projekti on tarkoitettu työnhaun tueksi.
-                        Selaile sovellusta vapaasti. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta ja valita annoskokoja halusi mukaan!
+                        Hei, tämä projekti on tarkoitettu työnhaun tueksi. Voit vaihdella sovelluksen väripalettia oikeasta yläkulmasta, etsiä tiettyä reseptiä ja valita annoskokoja halusi mukaan!
                         <br />
                         <br />
                         <a href="https://github.com/BenPanyanil/benin-pikakeittokirja" rel="noopener noreferrer" target="_blank">GitHub</a>

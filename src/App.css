@@ -121,8 +121,8 @@ img {
   margin: 0.5rem 0;
 }
 
-.my-1 {
-  margin: 1rem 0;
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
 .mb-2 {
@@ -151,6 +151,18 @@ img {
 
 .flex {
   display: flex;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .align-center {
@@ -204,7 +216,7 @@ img {
 .showReel {
   width: 100%;
   min-height: 500px;
-  height: 60vh;
+  height: 50vh;
   position: relative;
 }
 
@@ -259,16 +271,21 @@ img {
 
 .searchitem {
   font-size: 14px;
-  padding: 5px 18px;
-  margin-right: 5px;
+  padding: 5px 15px;
+  margin: 4px 8px 4px 0;
   border-radius: 100px;
   background-color:#eeeeee;
-  cursor: pointer;
+  outline: none;
+  color: #333333;
 }
 
 .searchitem > p {
   margin: 0;
-  color: #0A0F0D;
+  font-size: 13px;
+}
+
+.searchitem > svg {
+  margin-left: 4px;
 }
 
 .card {
@@ -282,7 +299,7 @@ img {
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .tooltip {

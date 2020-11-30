@@ -5,7 +5,7 @@ export default function EmptyPage() {
     const { colorTheme } = useColorThemeContext();
 
     return (
-        <div className="p-side-6">
+        <div className="p-side-6 mt-3">
             <h1 style={{ color: colorTheme.primary }}>404 sorry, no recipes found</h1>
         </div>
     )
