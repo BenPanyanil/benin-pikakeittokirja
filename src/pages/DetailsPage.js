@@ -1,12 +1,12 @@
 import React from 'react'
 
-import DetailPage from '../components/DetailPage'
+import DetailRender from '../components/DetailRender'
 import EmptyPage from './EmptyPage'
 
 export default function Detail() {
 	return (
 		<>
-			{localStorage.length === 0 ? <EmptyPage /> : <DetailPage />}
+			{localStorage.length === 0 ? <EmptyPage /> : <DetailRender />}
 		</>
 	)
 }

@@ -20,15 +20,17 @@ export default function Detail() {
 	const refSlideIn = useRef()
 	const refSlideOut = useRef()
 
+
+
 	const handleButton = (int, x) => {
 		handleServingSize(int)
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 		if (x.matches) {
-			history.push("/recipe")
+			history.push("/resepti")
 		} else {
 			setTimeout(() => {
-				history.push("/recipe")
+				history.push("/resepti")
 			}, 500)
 			setTimeout(() => {
 				setTransition(false)
@@ -36,8 +38,6 @@ export default function Detail() {
 			setTransition(true)
 		}
 	}
-
-
 
 	const minus = () => {
 		if (customValue > 1) {

@@ -6,7 +6,7 @@ export default function EmptyPage() {
 
     return (
         <div className="p-side-6">
-            <h1 style={{ color: colorTheme.primary }}>No recipes selected</h1>
+            <h1 style={{ color: colorTheme.primary }}>404 sorry, no recipes found</h1>
         </div>
     )
 }

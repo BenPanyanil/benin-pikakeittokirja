@@ -8,6 +8,7 @@ const recipes = [
         dishname: 'Khao pad gai',
         image: friedRice,
         time: '30',
+        tags: ['kana', 'riisi'],
         serving_size: 2,
         description: 'Eli thaimaalainen paistettu riisi kanalla.',
         ingredients: [
@@ -39,6 +40,7 @@ const recipes = [
         dishname: 'Tom yam Kung',
         image: tomYum,
         time: '15',
+        tags: ['katkarapu', 'keitto'],
         serving_size: 2,
         description: 'Thaimaalainen katkarapukeitto. Tulisen aromikas, tom yam kung. Helppo versio.',
         ingredients: [
@@ -67,6 +69,7 @@ const recipes = [
         dishname: 'Pad kra pao moo',
         image: padKraPao,
         time: '20',
+        tags: ['possu', 'riisi', 'kananmuna'],
         serving_size: 2,
         description: 'Basilikakastikkeessa tarjoiltu possu on aitoa thaimaalaista pikaruokaa, pad kra pao moo.',
         ingredients: [

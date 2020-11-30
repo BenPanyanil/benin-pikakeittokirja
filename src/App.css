@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -6,13 +10,8 @@ body {
   margin: 0;
   padding: 18px 0;
   overflow-x: hidden;
-  background-color: #ffffff;
   position: relative;
   font-family: "Poppins", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .App {
@@ -76,6 +75,32 @@ a {
   color: #fff;
 }
 
+span {
+  vertical-align: middle;
+  margin-right: 20px;
+  font-weight: 200;
+}
+
+ol {
+  margin: 0;
+}
+
+table {
+  margin: 16px 0;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .relative {
   position: relative;
 }
@@ -94,6 +119,10 @@ a {
 
 .my-05 {
   margin: 0.5rem 0;
+}
+
+.my-1 {
+  margin: 1rem 0;
 }
 
 .mb-2 {
@@ -207,6 +236,39 @@ a {
   border: none;
   border-radius: 100px;
   margin-right: 12px;
+}
+
+.searchinput {
+  border-bottom: 1px solid #0A0F0D;
+}
+
+.searchinput > input {
+  width: 100%;
+  padding: 10px 0;
+  margin-left: 15px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.searchinput > input::placeholder {
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+}
+
+.searchitem {
+  font-size: 14px;
+  padding: 5px 18px;
+  margin-right: 5px;
+  border-radius: 100px;
+  background-color:#eeeeee;
+  cursor: pointer;
+}
+
+.searchitem > p {
+  margin: 0;
+  color: #0A0F0D;
 }
 
 .card {
@@ -347,26 +409,6 @@ a {
   padding: 0 16px;
 }
 
-span {
-  vertical-align: middle;
-  margin-right: 20px;
-  font-weight: 200;
-}
-
-ol {
-  margin: 0;
-}
-
-table {
-  margin: 16px 0;
-  border-collapse: collapse;
-}
-
-td {
-  border: 1px solid black;
-  padding: 15px;
-}
-
 .servingSize-calculator {
   justify-self: end;
   padding: 20px 25px 30px 25px;
@@ -436,12 +478,6 @@ td {
   width: 100%;
   height: 500px;
   position: relative;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .popupBackground {

@@ -7,10 +7,11 @@ import { ContextProvider } from './Context'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import FrontPage from './pages/FrontPage'
-import Details from './pages/Details'
-import Recipe from './pages/Recipe'
+import DetailsPage from './pages/DetailsPage'
+import RecipePage from './pages/RecipePage'
 import ColorThemePopup from './components/ColorThemePopup'
 import TransitionOverlay from './components/TransitionOverlay'
+import EmptyPage from './pages/EmptyPage';
 
 function App() {
 
@@ -22,8 +23,9 @@ function App() {
           <Nav />
           <Switch>
             <Route path="/" exact component={FrontPage} />
-            <Route path="/detail" component={Details} />
-            <Route path="/recipe" component={Recipe} />
+            <Route path="/annoskoko" component={DetailsPage} />
+            <Route path="/resepti" component={RecipePage} />
+            <Route component={EmptyPage} />
           </Switch>
           <Footer />
         </div>

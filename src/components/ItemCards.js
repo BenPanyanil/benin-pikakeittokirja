@@ -18,10 +18,10 @@ export default function ItemCards({ recipe, index }) {
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 		if (x.matches) {
-			history.push("/detail")
+			history.push("/annoskoko")
 		} else {
 			setTimeout(() => {
-				history.push("/detail")
+				history.push("/annoskoko")
 			}, 500)
 			setTimeout(() => {
 				setTransition(false)
