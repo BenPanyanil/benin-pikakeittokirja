@@ -12,28 +12,32 @@ const currentTitles = [
     "Tom yam Kung",
 ]
 
-export default function SearchBar({ setSearch }) {
+export default function SearchBar({ searchWord, setSearchWord }) {
     let [titles, setTitles] = useState(currentTitles)
 
     const keyHandler = (e) => {
-        if (e.target.value === "") {
-            return;
-        }
-
-        if (titles.length >= 12) {
-            return;
-        }
-
-        let newTitle = e.target.value
-        let lowerCased = newTitle.toLowerCase();
-        let capitalized = lowerCased.charAt(0).toUpperCase() + lowerCased.slice(1)
-        newTitle = capitalized
-
         if (e.key === 'Enter') {
+            if (e.target.value === "") {
+                return;
+            }
+
+            if (titles.length >= 12) {
+                return;
+            }
+
+            let newTitle = e.target.value
+            let lowerCased = newTitle.toLowerCase();
+            let capitalized = lowerCased.charAt(0).toUpperCase() + lowerCased.slice(1)
+            newTitle = capitalized
+
             setTitles(
                 titles = [...titles, newTitle]
             )
-            setSearch(newTitle)
+
+            setSearchWord(
+                [...searchWord, newTitle]
+            )
+
             e.target.value = ""
         }
     }
@@ -42,14 +46,15 @@ export default function SearchBar({ setSearch }) {
         <div className="p-side-6 mt-3">
             <div className="searchinput flex align-center mb-1">
                 <IoMdSearch />
-                <input placeholder="Hae reseptiä" onKeyDown={(e) => { keyHandler(e) }}></input>
+                <input placeholder="Hae reseptiä" onKeyPress={(e) => { keyHandler(e) }}></input>
             </div>
             <div className="searchitempool flex flex-reverse flex-end flex-wrap">
                 {titles.map((title, i) => (
                     <SearchItem
                         key={i}
                         index={i}
-                        setSearch={setSearch}
+                        searchWord={searchWord}
+                        setSearchWord={setSearchWord}
                         title={title}
                         titles={titles}
                         setTitles={setTitles}

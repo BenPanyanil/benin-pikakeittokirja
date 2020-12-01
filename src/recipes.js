@@ -5,10 +5,11 @@ import padKraPao from './img/phad-kra-pao.jpg'
 
 const recipes = [
     {
+        id: 1,
         dishname: 'Khao pad gai',
         image: friedRice,
         time: '30',
-        tags: ['kana', 'riisi'],
+        tags: ['kana', 'riisi', 'khaopadgai', 'khao', 'pad', 'gai', '30min'],
         serving_size: 2,
         description: 'Eli thaimaalainen paistettu riisi kanalla.',
         ingredients: [
@@ -37,10 +38,11 @@ const recipes = [
         ]
     },
     {
+        id: 2,
         dishname: 'Tom yam Kung',
         image: tomYum,
         time: '15',
-        tags: ['katkarapu', 'keitto'],
+        tags: ['katkarapu', 'keitto', '15min', 'tomyamkung', 'tom', 'yam', 'kung'],
         serving_size: 2,
         description: 'Thaimaalainen katkarapukeitto. Tulisen aromikas, tom yam kung. Helppo versio.',
         ingredients: [
@@ -66,10 +68,11 @@ const recipes = [
         ]
     },
     {
+        id: 3,
         dishname: 'Pad kra pao moo',
         image: padKraPao,
         time: '20',
-        tags: ['possu', 'riisi', 'kananmuna'],
+        tags: ['possu', 'riisi', 'kananmuna', 'padkrapaomoo', 'pad', 'kra', 'pao', 'moo', '20min'],
         serving_size: 2,
         description: 'Basilikakastikkeessa tarjoiltu possu on aitoa thaimaalaista pikaruokaa, pad kra pao moo.',
         ingredients: [

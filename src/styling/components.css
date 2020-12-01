@@ -474,10 +474,6 @@ img {
     padding-inline-start: 20px;
   }
   
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
   .servingSize-calculator {
     justify-self: center;
   }

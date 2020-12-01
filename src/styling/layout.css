@@ -99,3 +99,9 @@
 .justify-self-end {
     justify-self: end;
 }
+
+@media only screen and (max-width: 1000px) {    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

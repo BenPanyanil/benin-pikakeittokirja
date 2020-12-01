@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoMdCloseCircle } from 'react-icons/io'
 import { useColorThemeContext } from '../Context'
 
-export default function SearchItem({ index, setSearch, title, titles, setTitles, newSearch }) {
+export default function SearchItem({ index, searchWord, setSearchWord, title, titles, setTitles, newSearch }) {
     let [status, setStatus] = useState(newSearch)
     const { colorTheme } = useColorThemeContext()
 
@@ -14,13 +14,23 @@ export default function SearchItem({ index, setSearch, title, titles, setTitles,
             setTitles(
                 titles = [...titles]
             )
-            setSearch('')
+            const i = searchWord.indexOf(title)
+            searchWord.splice(i, 1)
+            setSearchWord(
+                [...searchWord]
+            )
         } else {
             setStatus(status = !status)
             if (status) {
-                setSearch(title)
+                setSearchWord(
+                    [...searchWord, title]
+                )
             } else {
-                setSearch('')
+                const i = searchWord.indexOf(title)
+                searchWord.splice(i, 1)
+                setSearchWord(
+                    [...searchWord]
+                )
             }
         }
     }
