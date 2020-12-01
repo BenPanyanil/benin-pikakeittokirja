@@ -3,13 +3,13 @@ import SearchItem from './SearchItem'
 import { IoMdSearch } from 'react-icons/io'
 
 const currentTitles = [
-    "Keitto",
+    "Tom yam Kung",
+    "Kana",
     "Possu",
     "15min",
     "20min",
-    "Kana",
+    "Keitto",
     "Riisi",
-    "Tom yam Kung",
 ]
 
 export default function SearchBar({ searchWord, setSearchWord }) {
